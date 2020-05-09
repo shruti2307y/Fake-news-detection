@@ -15,8 +15,8 @@ from sklearn.metrics import accuracy_score, confusion_matrix
 
 
 df=pd.read_csv('news_data.csv',encoding='ISO-8859-1')
-df.shape
-df.head()
+print(df.shape)
+print(df.head())
 df.dropna(subset = ["Body"], inplace=True)
 
 labels=df.Label
@@ -32,5 +32,5 @@ pac.fit(tfidf_train,y_train)
 y_pred=pac.predict(tfidf_test)
 score=accuracy_score(y_test,y_pred)
 print(f'Accuracy: {round(score*100,2)}%')
-confusion_matrix(y_test,y_pred, labels=[0,1])
+print(confusion_matrix(y_test,y_pred, labels=[0,1]))
 
